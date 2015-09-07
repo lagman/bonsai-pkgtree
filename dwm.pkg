@@ -2,7 +2,7 @@ DESCRIPTION="DWM Tiling Window Manager"
 HOMEPAGE="dwm.suckless.org"
 LICENSE="MIT"
 VERSION="6.0"
-SRC_URL="http://dl.suckless.org/dwm/dwm-6.0.tar.gz"
+SRC_URL="http://dl.suckless.org/dwm/$PN-$VERSION.tar.gz"
 
 build()
 {
