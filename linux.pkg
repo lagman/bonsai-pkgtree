@@ -1,0 +1,32 @@
+DESCRIPTION="Vanilla Linux Kernel package"
+HOMEPAGE="www.kernel.org"
+LICENSE="GPLv3"
+VERSION="4.1.6"
+SRC_URL="https://www.kernel.org/pub/linux/kernel/v4.x/$PN-$VERSION.tar.xz"
+REPO=""
+HASH=""
+
+configure()
+{
+	make mrproper
+	make menuconfig
+}
+
+build()
+{
+  echo "* How many CPUs we should use?: "; read CPUS
+	make -j$CPUS
+}
+
+check()
+{
+  :
+}
+
+merge()
+{
+  make modules_install 
+	make headers_install
+  cp bzImage /boot/vmlinuz-$PN-$VERSION
+	echo "* You need to compile ramdisk yourself for now."
+}
