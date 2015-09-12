@@ -21,8 +21,3 @@ merge()
 {
   make install
 }
-
-unmerge()
-{
-	rm -f /usr/local/bin/dwm
-}
