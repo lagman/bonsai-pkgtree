@@ -3,7 +3,7 @@ HOMEPAGE="dwm.suckless.org"
 LICENSE="MIT"
 VERSION="6.0"
 SRC_URL="http://dl.suckless.org/dwm/$PN-$VERSION.tar.gz"
-DEPS=""
+DEPS="" #No dependencies
 CATEGORY="x-wm"
 FEATURES=""
 
@@ -22,3 +22,7 @@ merge()
   make install
 }
 
+unmerge()
+{
+	rm -f /usr/local/bin/dwm
+}
