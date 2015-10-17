@@ -10,7 +10,7 @@ FEATURES=""
 build()
 {
 	echo -e '\033[33m[info] Launching editor to edit dwm config file...\033[0m\n'
-	vi config.def.h
+	$CONFIG_EDITOR config.def.h
 	make
 }
 
