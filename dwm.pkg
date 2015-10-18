@@ -3,10 +3,19 @@ HOMEPAGE="dwm.suckless.org"
 LICENSE="MIT"
 VERSION="6.0"
 SRC_URL="http://dl.suckless.org/dwm/$PN-$VERSION.tar.gz"
+DEPS="" #No dependencies
+CATEGORY="x-wm"
+FEATURES=""
+
+if_editor()
+{  
+  echo -e "\033[33m* Launching editor to edit the config.def.h header...\033[0m"
+	$CONFIG_EDITOR config.def.h
+}
 
 build()
 {
-	make
+	make $MAKE_FLAGS
 }
 
 check()
@@ -18,4 +27,3 @@ merge()
 {
   make install
 }
-
