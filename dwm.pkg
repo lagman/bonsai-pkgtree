@@ -7,11 +7,15 @@ DEPS="" #No dependencies
 CATEGORY="x-wm"
 FEATURES=""
 
+if_editor()
+{  
+  echo -e "\033[33m* Launching editor to edit the config.def.h header...\033[0m"
+	$CONFIG_EDITOR config.def.h
+}
+
 build()
 {
-	echo -e '\033[33m[info] Launching editor to edit dwm config file...\033[0m\n'
-	$CONFIG_EDITOR config.def.h
-	make
+	make $MAKE_FLAGS
 }
 
 check()
