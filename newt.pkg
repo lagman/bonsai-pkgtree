@@ -1,0 +1,30 @@
+DESCRIPTION="programming library for color text mode, widget based user interfaces"
+HOMEPAGE="https://releases.pagure.org/newt"
+LICENSE="GPL 2.1"
+VERSION="0.52.20"
+SRC_URL="https://releases.pagure.org/newt/newt-0.52.20.tar.gz"
+DEPS="popt slang GPM"
+CATEGORY=""
+FEATURES=""
+if_editor()
+{
+	sed -e 's/^LIBNEWT =/#&/' -e '/install -m 644 $(LIBNEWT)/ s/^/#/' -e 's/$(LIBNEWT)/$(LIBNEWTSONAME)/g' -i Makefile.in
+}
+
+configure ()
+{
+	./configure --prefix=/usr --with-gpm-support
+}
+
+build ()
+{
+	make
+
+}                                                                               check ()
+{
+	make -j4 check
+}
+merge ()
+{
+	make install 
+}
